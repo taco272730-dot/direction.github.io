@@ -359,7 +359,6 @@ body img{
     transform: translateY(-50%);
     left: 2%;
     /* width: 34vw; */
-    color: white;
 }
 .topView__logo{
     animation: fadeRight .5s;
@@ -368,6 +367,8 @@ body img{
     font-size: 120px;
     animation: fadeRight 1s;
     transition: .5s;
+    filter: drop-shadow(0px 0px 2px white);
+    color: #0f0f0f;
 }
 .topView__text h2{
     font-size: 30px;
@@ -379,6 +380,7 @@ body img{
     border-radius: 0 50px 50px 0;
     margin: 20px 0;
     animation: fadeRight 1.5s;
+    color: white;
 }
 .topView__text h1 em{
     color: #b52520;
