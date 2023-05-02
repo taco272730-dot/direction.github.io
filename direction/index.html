@@ -94,7 +94,37 @@
             <a class="option-mobile" href="#" data-select="false">体育电竞平台</a>
             <a class="option-desktop" href="#" data-select="false">真人电子彩票</a>
             <a class="option-varied" href="#" data-select="false">线上博彩综合评价</a>
-            <a class="option-varied" href="#" data-select="false">优质老台专区</a>
+            <!-- <a class="option-varied" href="#" data-select="false">优质老台专区</a> -->
+            <div class="option-child-h5 drawer-inside" data-select="false">
+                <h2>优质老台专区
+                    <!-- <i class="fa-solid fa-angle-down"></i> -->
+                </h2>
+                <div class="option-drawer mobile">
+                    <div class="option-drawer-inner">
+                        <div class="option-child">
+                            <a class="btnChild-01" href="#">
+                                <h1>購買課程紀錄</h1>
+                            </a>
+                        </div>
+                        <div class="option-child">
+                            <a class="btnChild-02" href="#">
+                                <h1>優惠點數紀錄</h1>
+                            </a>
+                        </div>
+                        <div class="option-child">
+                            <a class="btnChild-03" href="#">
+                                <h1>收藏課程</h1>
+                            </a>
+                        </div>
+                        <div class="option-child">
+                            <a class="btnChild-04" href="#">
+                                <h1>基本資料維護</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- <a class="option-customized" href="#" data-select="false">Customized</a> -->
             <!-- <a href="https://taco272730-dot.github.io/yihe.github.io/yihe/#templates" target="_blank">Module</a> -->
             <div class="closeBtn">
@@ -1425,13 +1455,14 @@
 
     // 點擊空白處關閉選單(mobile)
     $("body").on("click", function(e){  
-        var btn = $(".burgerBtn");
+        var btn = $(".burgerBtn,.drawer-inside");
         // 判斷點擊的地方不是DIV或按鈕
         if(
         !btn.is(e.target) &&
         !btn.has(e.target).length
         ){
             $(".optionLine").attr("data-open", "false");
+            // $(".option-drawer,.option-child-h5").attr("data-select", "false");
         }
     });
 
@@ -1450,28 +1481,29 @@
         $(".wireframe_page").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-wireframe").attr("data-select","true");
-        $(".option-child").attr("data-select","false");
+        $(".option-child,.option-child a").attr("data-select","false");
     });
     $(".option-mobile").on("click",function(){
         $(".wrapper").siblings().attr("data-select","false");
         $(".mobile_page").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-mobile").attr("data-select","true");
-        $(".option-child").attr("data-select","false");
+        $(".option-child,.option-child a").attr("data-select","false");
+
     });
     $(".option-desktop").on("click",function(){
         $(".wrapper").siblings().attr("data-select","false");
         $(".desktop_page").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-desktop").attr("data-select","true");
-        $(".option-child").attr("data-select","false");
+        $(".option-child,.option-child a").attr("data-select","false");
     });
     $(".option-varied").on("click",function(){
         $(".wrapper").siblings().attr("data-select","false");
         $(".varied_page").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-varied").attr("data-select","true");
-        $(".option-child").attr("data-select","false");
+        $(".option-child,.option-child a").attr("data-select","false");
     });
     // $(".option-customized").on("click",function(){
     //     $(".wrapper").siblings().attr("data-select","false");
@@ -1484,6 +1516,7 @@
         $(".childPage01").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-child").siblings().attr("data-select","false");
+        $(".option-child").children("a").attr("data-select","false");
         $(".btnChild-01").attr("data-select","true");
     });
     $(".btnChild-02").on("click",function(){
@@ -1491,6 +1524,7 @@
         $(".childPage02").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-child").siblings().attr("data-select","false");
+        $(".option-child").children("a").attr("data-select","false");
         $(".btnChild-02").attr("data-select","true");
     });
     $(".btnChild-03").on("click",function(){
@@ -1498,6 +1532,7 @@
         $(".childPage03").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-child").siblings().attr("data-select","false");
+        $(".option-child").children("a").attr("data-select","false");
         $(".btnChild-03").attr("data-select","true");
     });
     $(".btnChild-04").on("click",function(){
@@ -1505,9 +1540,17 @@
         $(".childPage04").attr("data-select","true");
         $(".topOption li,.optionLine a").siblings().attr("data-select","false");
         $(".option-child").siblings().attr("data-select","false");
+        $(".option-child").children("a").attr("data-select","false");
         $(".btnChild-04").attr("data-select","true");
     });
-
+        // MOBILE選單開關-----------------------------
+        $(".option-child-h5 h2").on("click",function(){
+            $(this).parent(".option-child-h5").attr("data-select") == "true" ? $(this).parent(".option-child-h5").attr("data-select", "false") : $(this).parent(".option-child-h5").attr("data-select", "true");
+            $(this).parent(".option-child-h5").children(".mobile").attr("data-select") == "true" ? $(this).parent(".option-child-h5").children(".mobile").attr("data-select", "false") : $(this).parent(".option-child-h5").children(".mobile").attr("data-select", "true");
+        });
+        // $(".option-child-h5 a").on("click",function(){
+        //     $(".option-child-h5,.optionLine").attr("data-select","false");
+        // });
 
 
     //點擊左上方logo跟footer logo回home
@@ -1518,40 +1561,40 @@
     //     $(".option-home").attr("data-select","true");
     // });
     //點擊首頁wireframe圖前往該頁
-    $(".zone__image--wireframe").on("click",function(){
-        $(".wrapper").siblings().attr("data-select","false");
-        $(".wireframe_page").attr("data-select","true");
-        $(".topOption li,.optionLine a").siblings().attr("data-select","false");
-        $(".option-wireframe").attr("data-select","true");
-    });
-    //點擊首頁mobile圖前往該頁
-    $(".zone__image--mobile").on("click",function(){
-        $(".wrapper").siblings().attr("data-select","false");
-        $(".mobile_page").attr("data-select","true");
-        $(".topOption li,.optionLine a").siblings().attr("data-select","false");
-        $(".option-mobile").attr("data-select","true");
-    });
-    //點擊首頁desktop圖前往該頁
-    $(".zone__image--desktop").on("click",function(){
-        $(".wrapper").siblings().attr("data-select","false");
-        $(".desktop_page").attr("data-select","true");
-        $(".topOption li,.optionLine a").siblings().attr("data-select","false");
-        $(".option-desktop").attr("data-select","true");
-    });
-    //點擊首頁varied圖前往該頁
-    $(".zone__image--varied").on("click",function(){
-        $(".wrapper").siblings().attr("data-select","false");
-        $(".varied_page").attr("data-select","true");
-        $(".topOption li,.optionLine a").siblings().attr("data-select","false");
-        $(".option-varied").attr("data-select","true");
-    });
-    //點擊首頁customized圖前往該頁
-    $(".zone__image--customized").on("click",function(){
-        $(".wrapper").siblings().attr("data-select","false");
-        $(".customized_page").attr("data-select","true");
-        $(".topOption li,.optionLine a").siblings().attr("data-select","false");
-        $(".option-customized").attr("data-select","true");
-    });
+    // $(".zone__image--wireframe").on("click",function(){
+    //     $(".wrapper").siblings().attr("data-select","false");
+    //     $(".wireframe_page").attr("data-select","true");
+    //     $(".topOption li,.optionLine a").siblings().attr("data-select","false");
+    //     $(".option-wireframe").attr("data-select","true");
+    // });
+    // //點擊首頁mobile圖前往該頁
+    // $(".zone__image--mobile").on("click",function(){
+    //     $(".wrapper").siblings().attr("data-select","false");
+    //     $(".mobile_page").attr("data-select","true");
+    //     $(".topOption li,.optionLine a").siblings().attr("data-select","false");
+    //     $(".option-mobile").attr("data-select","true");
+    // });
+    // //點擊首頁desktop圖前往該頁
+    // $(".zone__image--desktop").on("click",function(){
+    //     $(".wrapper").siblings().attr("data-select","false");
+    //     $(".desktop_page").attr("data-select","true");
+    //     $(".topOption li,.optionLine a").siblings().attr("data-select","false");
+    //     $(".option-desktop").attr("data-select","true");
+    // });
+    // //點擊首頁varied圖前往該頁
+    // $(".zone__image--varied").on("click",function(){
+    //     $(".wrapper").siblings().attr("data-select","false");
+    //     $(".varied_page").attr("data-select","true");
+    //     $(".topOption li,.optionLine a").siblings().attr("data-select","false");
+    //     $(".option-varied").attr("data-select","true");
+    // });
+    // //點擊首頁customized圖前往該頁
+    // $(".zone__image--customized").on("click",function(){
+    //     $(".wrapper").siblings().attr("data-select","false");
+    //     $(".customized_page").attr("data-select","true");
+    //     $(".topOption li,.optionLine a").siblings().attr("data-select","false");
+    //     $(".option-customized").attr("data-select","true");
+    // });
     //切換頁面----------------------------------------------
 
 </script>

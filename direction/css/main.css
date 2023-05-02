@@ -272,8 +272,9 @@ body img{
 }
 .option-drawer.mobile{
     position: relative;
-    background: #a5a5a52e;
-    color: #9eecfd;
+    background: #a5a5a524;
+    color: #676767;
+    font-size: 16px;
     box-shadow: unset;
     top: unset;
     left: unset;
@@ -390,6 +391,23 @@ body img{
 .topView__text p em{
     font-weight: bolder;
     color: #b52520;
+}
+.option-child-h5{
+    width: 100%;
+    text-align: center;
+}
+.option-child-h5 i{
+    transition: .5s;
+    margin-left: 10px;
+}
+.option-child-h5[data-select="true"] h2 i{
+    transform: rotate(180deg);
+}
+.option-child-h5 h2{
+    padding: 10px 0;
+}
+.option-drawer[data-select="true"] {
+    max-height: 800px;
 }
 .activeBtn{
     display: flex;
@@ -942,6 +960,8 @@ video[poster]{
     }
     .optionLine a{
         padding: 10px 0;
+        width: 100%;
+        text-align: center;
     }
     .optionLine .closeBtn{
         position: absolute;
