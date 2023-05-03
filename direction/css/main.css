@@ -1077,6 +1077,10 @@ video[poster]{
     }
 }
 @media screen and (max-width: 613px) {
+    .topView{
+        background-image: url(../images/banner_h5.jpg);
+        background-size: cover;
+    }
     .topView__center{
         width: 100vw;
 
