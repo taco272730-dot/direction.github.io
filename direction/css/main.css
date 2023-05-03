@@ -191,6 +191,7 @@ body img{
 }
 .navBar .topOption li a{
     padding: 42px 20px;
+    display: block;
 }
 .navBar .topOption li .bottomLine{
     position: absolute;
@@ -407,6 +408,9 @@ body img{
 }
 .option-child-h5 h2{
     padding: 10px 0;
+}
+.option-drawer-inner .option-child{
+    padding: 0 !important;
 }
 .option-drawer[data-select="true"] {
     max-height: 800px;
