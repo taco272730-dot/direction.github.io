@@ -16,6 +16,7 @@ li{
 h1,h2,h3,h4,h5,p,figure,ul,li{
     font-size: unset;
     margin: unset;
+    padding: unset;
 }
 body img{
     user-select: none;
@@ -449,7 +450,7 @@ body img{
     margin: 0 auto;
 }
 .content.inside{
-    padding: 80px 0 40px;
+    padding: 40px 0;
     box-sizing: border-box;
 }
 .content section .beginning{
@@ -838,20 +839,24 @@ video[poster]{
     border-radius: 10px;
     display: flex;
     box-shadow: 5px 5px 22px #00000026;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+.lotteryHalfSide{
+    display: flex;
+    flex: 2;
 }
 .lotteryBox_head{
     width: 100%;
     display: flex;
 }
-.lotteryInside{
+.lotteryBox_head aside{
     margin-left: 20px;
     z-index: 2;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-.lotteryInside.first{
+.lotteryHalfSide.before aside{
     justify-content: space-between;
 }
 .lotteryBox_head h3{
@@ -867,6 +872,11 @@ video[poster]{
 }
 .lotteryBox_head h4{
     font-size: 12px;
+}
+.lotteryBox_head h5{
+    padding: 5px 10px;
+    background: linear-gradient(90deg,#333333,transparent);
+    border-radius: 5px;
 }
 .lotteryBox_head h4,
 .lotteryBox_head h5{
@@ -896,8 +906,7 @@ video[poster]{
     color: #b52520;
 }
 .lotteryAvatar{
-    width: 30%;
-    max-width: 200px;
+    width: 200px;
     height: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -920,8 +929,31 @@ video[poster]{
     color: white;
     padding: 7px 13px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     box-shadow: 3px 6px 14px #201b1b;
+    transition: .5s;
+}
+.lotteryBtnZone a:hover{
+    filter: brightness(1.6);
+    box-shadow: 0px 0px 14px #b52520;
+}
+.lotteryOpenBtn{
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+    bottom: 0;
+    padding: 5px 40px;
+    background: linear-gradient(180deg,#3e3e3e,#1f1f1f);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 2px 2px 0px #80808036 inset;
+    transition: .5s;
+}
+.lotteryOpenBtn i{
+    margin-left: 10px;
+}
+.lotteryOpenBtn:hover{
+    filter: brightness(1.5);
 }
 /* light-case */
 /* #lightcase-content{
@@ -944,8 +976,15 @@ video[poster]{
     .show-box__title h1{
         font-size: 45px;
     }
+    .lotteryBox_head h3{
+        display: flex;
+        flex-direction: column;
+    }
+    .lotteryBox_head h3 span{
+        margin-left: 0;
+    }
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1140px) {
     .content{
         width: 100%;
     }
@@ -1007,7 +1046,7 @@ video[poster]{
     }
     .navBar_h5{
         position: fixed;
-        z-index: 1;
+        z-index: 100;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -1141,7 +1180,7 @@ video[poster]{
         filter: brightness(1);
     }
 }
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 960px) {
     .wrapper{
         background: url(../images/sportGamingBg.jpg) center repeat;
     }
@@ -1154,6 +1193,12 @@ video[poster]{
     }
     .main-title{
         font-size: 26px;
+    }
+    .lotteryBox_head{
+        flex-direction: column;
+    }
+    .lotteryHalfSide{
+        margin-bottom: 20px;
     }
 }
 @media screen and (max-width: 753px) {
@@ -1405,6 +1450,45 @@ video[poster]{
         border-radius: 0;
     } */
     /* light-case */
+    .lotteryAvatar{
+        width: 120px;
+    }
+    .lotteryHalfSide.after{
+        flex-direction: column;
+    }
+    .lotteryHalfSide.after aside{
+        margin-left: 0;
+
+    }
+    .lotteryBtnZone{
+        margin-left: 0;
+        flex-direction: row;
+        margin-top: 10px;
+    }
+    .lotteryBtnZone a{
+        flex: 1;
+        font-size: 14px;
+        padding: 7px 2px;
+    }
+    .lotteryBtnZone a:first-child{
+        margin-right: 5px;
+    }
+    .lotteryBtnZone a:last-child{
+        margin-left: 5px;
+    }
+    .lotteryBox_head h3{
+        font-size: 16px;
+    }
+    .lotteryBox_head h5{
+        font-size: 12px;
+    }
+    .lotteryOpenBtn{
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 50%;
+        text-align: center;
+    }
 }
 @media screen and (max-width: 380px) {
     .topView .rewardSlogan{
