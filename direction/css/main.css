@@ -840,18 +840,20 @@ video[poster]{
     display: flex;
     box-shadow: 5px 5px 22px #00000026;
     margin-bottom: 20px;
+    flex-direction: column;
+    transition: .5s;
 }
 .lotteryHalfSide{
     display: flex;
     flex: 2;
 }
-.lotteryBox_head{
+.lotteryBox_head,.lotteryBox_body{
     width: 100%;
     display: flex;
-}
-.lotteryBox_head aside{
-    margin-left: 20px;
     z-index: 2;
+}
+.lotteryBox_head aside,.lotteryBox_body aside{
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -886,7 +888,7 @@ video[poster]{
     font-weight: normal;
 }
 
-.lotteryBox_head:after{
+.lotteryBox:after{
     content: "";
     position: absolute;
     width: calc(100% - 20px);
@@ -896,24 +898,35 @@ video[poster]{
     left: 50%;
     transform: translate(-50%,-50%);
     border-radius: 5px;
-    box-shadow: 1px 1px 0px #ffffff0a;
+    box-shadow: 1px 1px 0px #ffffff1a, 1px 1px 0 #ffffff1a inset;
 }
-.lotteryBox_head ul{
+.lotteryBox_head ul,.lotteryBox_body ul{
     display: flex;
     margin-bottom: 5px;
     font-size: 13px;
 }
-.lotteryBox_head ul i{
+.lotteryBox_head ul i,.lotteryBox_body ul i{
     margin-right: 10px;
     padding-top: 3px;
     color: #b52520;
 }
 .lotteryAvatar{
     width: 200px;
-    height: 100%;
     border-radius: 10px;
     overflow: hidden;
-    z-index: 2;
+    position: relative;
+}
+.lotteryAvatar h1{
+    position: absolute;
+    top: 17px;
+    left: -61px;
+    padding: 5px 0;
+    color: white;
+    width: 90%;
+    text-align: center;
+    background: linear-gradient(146deg, #b52520, #6c0400);
+    transform: rotate(311deg);
+    font-size: 14px;
 }
 .lotteryAvatar img{
     width: 100%;
@@ -923,7 +936,6 @@ video[poster]{
 .lotteryBtnZone{
     display: flex;
     flex-direction: column;
-    z-index: 2;
     margin-left: 30px;
 }
 .lotteryBtnZone a{
@@ -952,11 +964,55 @@ video[poster]{
     box-shadow: 2px 2px 0px #80808036 inset;
     transition: .5s;
 }
+.lotteryOpenBtn .toClose{
+    display: none;
+}
 .lotteryOpenBtn i{
     margin-left: 10px;
 }
 .lotteryOpenBtn:hover{
     filter: brightness(1.5);
+}
+.lotteryBox_body_outer{
+    z-index: 2;
+    overflow: hidden;
+    max-height: 800px;
+    transition: .5s;
+}
+.lotteryBox_body{
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #00000069, #00000000);
+    border-radius: 10px 10px 0 0;
+    margin: 20px 0;
+    box-shadow: 0px 2px 0px #ffffff21 inset;
+}
+.lotteryBox[data-select="true"]{
+    box-shadow: 0 0 29px #870505, 0 0 11px #ffffff45 inset;
+    filter: brightness(1.5);
+}
+.lotteryBox[data-select="true"] .lotteryOpenBtn i{
+    transform: rotate(180deg);
+}
+.lotteryBox[data-select="false"] .lotteryBox_body_outer{
+    max-height: 0;
+}
+.lotteryBox[data-select="true"] .lotteryOpenBtn .toOpen{
+    display: none;
+}
+.lotteryBox[data-select="true"] .lotteryOpenBtn .toClose{
+    display: inline-block;
+}
+.cooperations{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cooperations figure{
+    height: 20px;
+    margin: 0 20px 20px 0;
+}
+.cooperations figure img{
+    height: 100%;
 }
 /* light-case */
 /* #lightcase-content{
@@ -1203,6 +1259,12 @@ video[poster]{
     .lotteryHalfSide{
         margin-bottom: 20px;
     }
+    .lotteryHalfSide.after{
+        margin-bottom: 10px;
+    }
+    .lotteryBox_body{
+        margin: 0 0 20px;
+    }
 }
 @media screen and (max-width: 753px) {
     .topView__text h1{
@@ -1223,6 +1285,9 @@ video[poster]{
         width: 100%;
         margin-bottom: 40px;
         max-height: 160px;
+    }
+    .lotteryBox_body{
+        flex-direction: column;
     }
 }
 @media screen and (max-width: 613px) {
@@ -1408,7 +1473,7 @@ video[poster]{
 
 
     .content.inside{
-        padding: 20px 28px 15px;
+        padding: 20px 14px 15px;
     }
     .show-box{
         flex-direction: column;
@@ -1472,6 +1537,7 @@ video[poster]{
         flex: 1;
         font-size: 14px;
         padding: 7px 2px;
+        margin-bottom: 20px;
     }
     .lotteryBtnZone a:first-child{
         margin-right: 5px;
@@ -1482,6 +1548,12 @@ video[poster]{
     .lotteryBox_head h3{
         font-size: 16px;
     }
+    .lotteryBox_head h3 span{
+        font-size: 12px;
+    }
+    .lotteryBox_head h4{
+        margin-bottom: 10px;
+    }
     .lotteryBox_head h5{
         font-size: 12px;
     }
@@ -1491,6 +1563,17 @@ video[poster]{
         transform: translateX(-50%);
         width: 50%;
         text-align: center;
+    }
+    .lotteryAvatar h1{
+        top: 14px;
+        left: -31px;
+        font-size: 12px;
+    }
+    .lotteryBox_body .lotteryHalfSide.before aside{
+        margin-left: 0;
+    }
+    .cooperations figure{
+        height: 12px;
     }
 }
 @media screen and (max-width: 380px) {
