@@ -446,7 +446,7 @@ body img{
 }
 .content{
     width: 80vw;
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 .content.inside{
@@ -690,6 +690,8 @@ body img{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    width: 70%;
+    margin: 0 auto 30px;
 }
 .main-title__bar {
     height: 2px;
@@ -803,9 +805,7 @@ body img{
     filter: brightness(0.3);
 }
 .video-box{
-    display: flex;
-    align-items: center;
-    margin: 0 2% 70px;
+    margin: 0 0 50px;
 }
 .video-box__video,.video-box__describe{
     animation: rotate 0.5s;
@@ -1009,10 +1009,57 @@ video[poster]{
 }
 .cooperations figure{
     height: 20px;
-    margin: 0 20px 20px 0;
+    margin: 0 20px 10px 0;
 }
 .cooperations figure img{
     height: 100%;
+}
+.lotteryBox_body .lotteryHalfSide.before{
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tagZone{
+    border-top: 1px solid #3e3e3e;
+    width: fit-content;
+    padding-top: 10px;
+}
+.tagZone,.tagElement{
+    display: flex;
+    color: #767676;
+}
+.tagElement{
+    margin-right: 30px;
+    align-items: center;
+}
+.tagElement:last-child{
+    margin-right: 0;
+}
+.tagElement h1{
+    margin-right: 15px;
+    font-size: 12px;
+}
+.tagElement h2{
+    padding: 5px 10px;
+    background: #80808029;
+    border-radius: 5px;
+}
+.tagElement figure{
+    width: 43px;
+    height: 29px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.tagElement figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.tagElement_group{
+    display: flex;
+}
+.lotteryBox_body .lotteryHalfSide.before aside{
+    margin-left: 0;
 }
 /* light-case */
 /* #lightcase-content{
@@ -1067,8 +1114,8 @@ video[poster]{
     }
     .topView.inside .rewardSlogan{
         width: 72vw;
-        right: -21%;
-        bottom: -3%;
+        right: -11%;
+        bottom: -36%;
     }
     .topView__text p{
         width: 40vw;
@@ -1265,6 +1312,13 @@ video[poster]{
     .lotteryBox_body{
         margin: 0 0 20px;
     }
+    .tagElement{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .tagElement h1{
+        margin-bottom: 5px;
+    }
 }
 @media screen and (max-width: 753px) {
     .topView__text h1{
@@ -1275,6 +1329,8 @@ video[poster]{
     }
     .main-title{
         font-size: 20px;
+        width: 80%;
+        margin-bottom: 10px;
     }
     .video-box{
         flex-direction: column;
@@ -1288,6 +1344,25 @@ video[poster]{
     }
     .lotteryBox_body{
         flex-direction: column;
+    }
+    .tagZone{
+        width: auto;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #3e3e3e;
+    }
+    .tagElement{
+        flex-direction: row;
+        align-items: center;
+    }
+    .tagElement h1{
+        margin-bottom: 0;
+    }
+    .cooperations{
+        margin-bottom: 10px;
+    }
+    .lotteryBox_body .lotteryHalfSide.after aside:first-child{
+        margin-left: 0;
     }
 }
 @media screen and (max-width: 613px) {
@@ -1318,7 +1393,7 @@ video[poster]{
         align-items: center;
         top: unset;
         transform: unset;
-        padding-top: 29%;
+        padding-top: 20%;
         position: relative;
         left: unset;
     }
@@ -1352,6 +1427,7 @@ video[poster]{
     .topView.inside .topView__text h1{
         font-size: 63px;
         line-height: 50px;
+        order: 2;
     }
     .topView_h5 img{
         width: 100%;
@@ -1574,6 +1650,15 @@ video[poster]{
     }
     .cooperations figure{
         height: 12px;
+    }
+    .main-title{
+        width: 100%;
+    }
+    .tagZone{
+        flex-direction: column;
+    }
+    .tagElement:first-child{
+        margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 380px) {
